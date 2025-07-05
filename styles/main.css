@@ -49,6 +49,13 @@
     scroll-behavior: smooth !important;
 }
 
+/* Enhanced scroll snap for main container */
+.main-swiper {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    overflow-y: auto;
+}
+
 /* Enhanced visual feedback for scrolling */
 .swiper-slide-duplicate {
     display: none !important;
@@ -119,6 +126,49 @@ footer {
     -webkit-backdrop-filter: blur(24px);
 }
 
+/* Minimal slide indicators styling */
+.slide-indicators {
+    pointer-events: auto;
+}
+
+.slide-dot {
+    width: 4px !important;
+    height: 4px !important;
+    background-color: rgba(255, 255, 255, 0.3);
+    opacity: 0.4;
+    transform: scale(1);
+    border: none;
+    box-shadow: none;
+}
+
+.slide-dot:hover {
+    opacity: 0.6;
+    transform: scale(1.2);
+}
+
+.slide-dot.active {
+    opacity: 1;
+    transform: scale(1.5);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Adaptive colors for slide indicators */
+.slide-indicators.light-bg .slide-dot {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.slide-indicators.light-bg .slide-dot.active {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slide-indicators.dark-bg .slide-dot {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.slide-indicators.dark-bg .slide-dot.active {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero-content {
@@ -143,6 +193,21 @@ footer {
     .features {
         grid-template-columns: 1fr !important;
     }
+      .slide-indicators {
+        right: 4px;
+        gap: 1rem;
+    }
+    
+    .slide-dot {
+        width: 4px !important;
+        height: 4px !important;
+    }
+    
+    .scroll-indicator {
+        bottom: 6px;
+        right: 6px;
+        gap: 2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -152,5 +217,14 @@ footer {
     
     .section-title {
         font-size: 1.8rem !important;
+    }
+      .slide-indicators {
+        right: 3px;
+        gap: 0.8rem;
+    }
+    
+    .slide-dot {
+        width: 3px !important;
+        height: 3px !important;
     }
 }

@@ -22,13 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
             enabled: true,
             onlyInViewport: true,
         },
-        
-        // Pagination
+          // Pagination
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
             renderBullet: function (index, className) {
-                const titles = ['HOME', 'ABOUT', 'LOOKBOOK', 'SHOP'];
+                const titles = ['HOME', 'ABOUT', 'LOOKBOOK', 'SHOP', 'COMMUNITY'];
                 return '<span class="' + className + ' px-4 py-2 text-xs font-medium tracking-wide rounded-full transition-all duration-300">' + titles[index] + '</span>';
             },
         },
@@ -49,11 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Prevent momentum scrolling
         freeMode: false,
         freeModeSticky: false,
-        
-        // Callbacks
+          // Callbacks
         on: {
             slideChange: function() {
                 updateNavbarTheme(this.activeIndex);
+                updateFooterTheme(this.activeIndex);
                 updateScrollIndicators(this.activeIndex, this.slides.length);
                 animateActiveSlide();
             },
@@ -74,10 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Remove existing theme classes
         navbar.classList.remove('navbar-dark', 'navbar-light');
-        
-        // Dark backgrounds: About (1) and Lookbook (2)
-        // Light backgrounds: Hero (0) and Shop (3)
-        if (slideIndex === 1 || slideIndex === 2) {
+          // Dark backgrounds: About (1) and Community (4)
+        // Light backgrounds: Hero (0), Lookbook (2), and Shop (3)
+        if (slideIndex === 1 || slideIndex === 4) {
             // Dark theme
             navbar.classList.add('navbar-dark');
             navbar.classList.remove('bg-white/95', 'border-black/10');
@@ -124,14 +122,45 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileSpans.forEach(span => {
                 span.classList.remove('bg-white');
                 span.classList.add('bg-gray-900');
+            });        }
+    }
+
+    // Update footer theme based on current slide (footer only appears on last slide)
+    function updateFooterTheme(slideIndex) {
+        const footer = document.querySelector('.footer');
+        if (!footer) return; // Footer only exists on the last slide
+        
+        // Dark backgrounds: About (1) and Community (4)
+        // Light backgrounds: Hero (0), Lookbook (2), and Shop (3)
+        if (slideIndex === 1 || slideIndex === 4) {
+            // Dark theme for footer
+            footer.classList.remove('bg-white/95', 'border-black/10');
+            footer.classList.add('bg-black/15', 'border-white/20');
+            
+            // Update text colors to white
+            const footerTextElements = footer.querySelectorAll('.footer-text, .footer-link');
+            footerTextElements.forEach(el => {
+                el.classList.remove('text-gray-900', 'hover:text-gray-600');
+                el.classList.add('text-white', 'hover:text-gray-300');
+            });
+        } else {
+            // Light theme for footer
+            footer.classList.remove('bg-black/15', 'border-white/20');
+            footer.classList.add('bg-white/95', 'border-black/10');
+            
+            // Update text colors to dark
+            const footerTextElements = footer.querySelectorAll('.footer-text, .footer-link');
+            footerTextElements.forEach(el => {
+                el.classList.remove('text-white', 'hover:text-gray-300');
+                el.classList.add('text-gray-900', 'hover:text-gray-600');
             });
         }
     }
 
-    // Update scroll indicators
+    // Update slide indicators with adaptive colors
     function updateScrollIndicators(slideIndex, totalSlides) {
         const scrollIndicator = document.querySelector('.scroll-indicator');
-        const scrollProgress = document.querySelector('.scroll-progress');
+        const slideIndicators = document.querySelector('.slide-indicators');
         
         // Hide scroll indicator on last slide
         if (slideIndex === totalSlides - 1) {
@@ -140,29 +169,29 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollIndicator.style.opacity = '1';
         }
 
-        // Update progress dots
-        const progressDots = document.querySelectorAll('.progress-dot');
-        progressDots.forEach((dot, index) => {
+        // Update slide dots
+        const slideDots = document.querySelectorAll('.slide-dot');
+        slideDots.forEach((dot, index) => {
             if (index === slideIndex) {
                 dot.classList.add('active');
-                dot.classList.remove('bg-white/40', 'border-black/20');
-                dot.classList.add('bg-gray-900', 'border-white', 'scale-125');
-                dot.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.3)';
             } else {
                 dot.classList.remove('active');
-                dot.classList.remove('bg-gray-900', 'border-white', 'scale-125');
-                dot.classList.add('bg-white/40', 'border-black/20');
-                dot.style.boxShadow = 'none';
             }
         });
 
-        // Adapt colors to background
-        if (slideIndex === 1 || slideIndex === 2) { // Dark backgrounds
-            scrollProgress.style.filter = 'invert(1)';
+        // Adapt indicator colors to background
+        // Light backgrounds: Hero (0), Lookbook (2), Shop (3)
+        // Dark backgrounds: About (1), Community (4)
+        if (slideIndex === 1 || slideIndex === 4) {
+            // Dark backgrounds - use light indicators
+            slideIndicators.classList.remove('light-bg');
+            slideIndicators.classList.add('dark-bg');
             scrollIndicator.classList.remove('text-gray-900');
             scrollIndicator.classList.add('text-white');
-        } else { // Light backgrounds
-            scrollProgress.style.filter = 'invert(0)';
+        } else {
+            // Light backgrounds - use dark indicators  
+            slideIndicators.classList.remove('dark-bg');
+            slideIndicators.classList.add('light-bg');
             scrollIndicator.classList.remove('text-white');
             scrollIndicator.classList.add('text-gray-900');
         }
@@ -187,20 +216,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, index * 100);
             });
         }
-    }
-
-    // Navigation link clicks
+    }    // Navigation link clicks
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach((link, index) => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            // Map nav links to slide indices: About=1, Lookbook=2, Shop=3, Community=4
             mainSwiper.slideTo(index + 1);
         });
-    });
-
-    // Progress dot clicks
-    const progressDots = document.querySelectorAll('.progress-dot');
-    progressDots.forEach((dot, index) => {
+    });// Slide dot clicks
+    const slideDots = document.querySelectorAll('.slide-dot');
+    slideDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             mainSwiper.slideTo(index);
         });
@@ -232,10 +258,9 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 ripple.remove();
             }, 600);
-            
-            // Navigate to shop section if it's a shop button
+              // Navigate to shop section if it's a shop button
             if (this.textContent.includes('SHOP')) {
-                mainSwiper.slideTo(3);
+                mainSwiper.slideTo(3); // Shop is now slide 3 (0-indexed)
             }
         });
     });
@@ -322,10 +347,9 @@ document.addEventListener('DOMContentLoaded', function() {
         resizeTimeout = setTimeout(() => {
             mainSwiper.update();
         }, 250);
-    });
-
-    // Initialize
+    });    // Initialize
     updateNavbarTheme(0);
+    updateFooterTheme(0);
     updateScrollIndicators(0, mainSwiper.slides.length);
     
     // Set body as loaded
