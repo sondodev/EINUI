@@ -1,5 +1,10 @@
 /* Custom animations and Swiper overrides */
 
+/* Global font family override */
+* {
+    font-family: 'Baloo 2', cursive !important;
+}
+
 /* Gradient shift animation for hero title */
 @keyframes gradientShift {
     0%, 100% { 
@@ -59,24 +64,6 @@
 /* Enhanced visual feedback for scrolling */
 .swiper-slide-duplicate {
     display: none !important;
-}
-
-/* Custom pagination styles */
-.swiper-pagination {
-    bottom: 30px !important;
-}
-
-.swiper-pagination-bullet {
-    background: transparent !important;
-    opacity: 0.5 !important;
-    margin: 0 0.5rem !important;
-    transition: all 0.3s ease !important;
-}
-
-.swiper-pagination-bullet-active {
-    background: rgba(255, 255, 255, 0.2) !important;
-    opacity: 1 !important;
-    transform: scale(1) !important;
 }
 
 /* Mobile menu styles */

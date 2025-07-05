@@ -12,6 +12,8 @@
         theme: {
           extend: {
             fontFamily: {
+              baloo: ["Baloo 2", "cursive"],
+              sans: ["Baloo 2", "ui-sans-serif", "system-ui"],
               inter: ["Inter", "sans-serif"],
             },
             animation: {
@@ -31,19 +33,18 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles/main.css" />
   </head>
-  <body class="font-inter overflow-x-hidden">
+  <body class="font-sans overflow-x-hidden">
     <!-- Navigation Header -->
     <nav
       class="navbar fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-black/10 py-4 transition-all duration-500"
@@ -53,9 +54,7 @@
       >
         <!-- Logo -->
         <div class="nav-logo">
-          <h1 class="text-2xl font-bold text-gray-900 tracking-wider">
-            EIN STUDIO
-          </h1>
+          <h1 class="text-2xl font-bold text-gray-900 tracking-wider">EIN</h1>
         </div>
 
         <!-- Desktop Navigation -->
@@ -578,9 +577,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Pagination -->
-      <div class="swiper-pagination"></div>
 
       <!-- Scroll Indicators -->
       <div

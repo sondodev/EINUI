@@ -16,20 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
             thresholdTime: 500,
             forceToAxis: true,
         },
-        
-        // Keyboard navigation
+          // Keyboard navigation
         keyboard: {
             enabled: true,
             onlyInViewport: true,
-        },
-          // Pagination
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-            renderBullet: function (index, className) {
-                const titles = ['HOME', 'ABOUT', 'LOOKBOOK', 'SHOP', 'COMMUNITY'];
-                return '<span class="' + className + ' px-4 py-2 text-xs font-medium tracking-wide rounded-full transition-all duration-300">' + titles[index] + '</span>';
-            },
         },
         
         // Slide transition effect
