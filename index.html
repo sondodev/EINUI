@@ -40,28 +40,44 @@
       href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles/main.css" />
+    <!-- Bootstrap Icons Latest -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <!-- Custom CSS - Modular Approach -->
+    <link rel="stylesheet" href="styles/variables.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/swiper.css" />
+    <link rel="stylesheet" href="styles/navigation.css" />
+    <link rel="stylesheet" href="styles/cart.css" />
+    <link rel="stylesheet" href="styles/indicators.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
   </head>
   <body class="font-sans overflow-x-hidden">
-    <!-- Navigation Header -->
+    <!-- Navigation Header - Compact -->
     <nav
-      class="navbar fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-black/10 py-4 transition-all duration-500"
+      class="navbar fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-black/10 py-2 transition-all duration-500"
     >
       <div
         class="nav-container max-w-7xl mx-auto flex items-center justify-between px-8"
       >
         <!-- Logo -->
-        <div class="nav-logo">
-          <h1 class="text-2xl font-bold text-gray-900 tracking-wider">EIN</h1>
+        <div class="logo-container">
+          <h1
+            class="text-4xl font-bold tracking-wide uppercase transition-colors duration-300 cursor-pointer"
+          >
+            EIN
+          </h1>
         </div>
-
-        <!-- Desktop Navigation -->
-        <div class="nav-menu hidden md:flex gap-8 items-center">
+        <!-- Desktop Navigation - Centered -->
+        <div
+          class="nav-menu hidden md:flex gap-8 items-center flex-1 justify-center"
+        >
           <a
             href="#about"
-            class="nav-link text-gray-900 font-medium text-sm tracking-wide transition-colors duration-300 relative hover:text-gray-600 group"
+            class="nav-link text-gray-900 font-bold text-base tracking-wide transition-colors duration-300 relative hover:text-gray-600 group uppercase"
           >
             ABOUT US
             <span
@@ -70,7 +86,7 @@
           </a>
           <a
             href="#lookbook"
-            class="nav-link text-gray-900 font-medium text-sm tracking-wide transition-colors duration-300 relative hover:text-gray-600 group"
+            class="nav-link text-gray-900 font-bold text-base tracking-wide transition-colors duration-300 relative hover:text-gray-600 group uppercase"
           >
             LOOKBOOK
             <span
@@ -79,7 +95,7 @@
           </a>
           <a
             href="#shop"
-            class="nav-link text-gray-900 font-medium text-sm tracking-wide transition-colors duration-300 relative hover:text-gray-600 group"
+            class="nav-link text-gray-900 font-bold text-base tracking-wide transition-colors duration-300 relative hover:text-gray-600 group uppercase"
           >
             SHOP
             <span
@@ -88,7 +104,7 @@
           </a>
           <a
             href="#community"
-            class="nav-link text-gray-900 font-medium text-sm tracking-wide transition-colors duration-300 relative hover:text-gray-600 group"
+            class="nav-link text-gray-900 font-bold text-base tracking-wide transition-colors duration-300 relative hover:text-gray-600 group uppercase"
           >
             COMMUNITY
             <span
@@ -97,7 +113,7 @@
           </a>
           <a
             href="#member"
-            class="nav-link text-gray-900 font-medium text-sm tracking-wide transition-colors duration-300 relative hover:text-gray-600 group"
+            class="nav-link text-gray-900 font-bold text-base tracking-wide transition-colors duration-300 relative hover:text-gray-600 group uppercase"
           >
             MEMBER
             <span
@@ -106,41 +122,55 @@
           </a>
         </div>
 
-        <!-- Actions -->
-        <div class="nav-actions flex items-center gap-6">
+        <!-- Actions - Right aligned -->
+        <div class="nav-actions flex items-center gap-4">
           <a
             href="#login"
-            class="nav-action text-gray-900 font-medium text-sm tracking-wide transition-colors duration-300 hover:text-gray-600"
-            >LOGIN</a
+            class="nav-action text-gray-900 font-medium text-xs tracking-wide transition-colors duration-300 hover:text-gray-600"
+            >Login</a
           >
           <a
             href="#join"
-            class="nav-action text-gray-900 font-medium text-sm tracking-wide transition-colors duration-300 hover:text-gray-600"
-            >JOIN US</a
+            class="nav-action text-gray-900 font-medium text-xs tracking-wide transition-colors duration-300 hover:text-gray-600"
+            >Join Us</a
           >
-          <div
-            class="currency bg-gray-100 px-4 py-2 rounded-full text-xs font-medium text-gray-900"
-          >
-            <span>₩3,000KRW</span>
+          <div class="cart-container relative">
+            <div
+              class="cart flex items-center gap-2 text-xs cursor-pointer text-gray-900 hover:text-gray-600 transition-all duration-300 group"
+            >
+              <div class="cart-icon-wrapper relative inline-block">
+                <i
+                  class="bi bi-cart text-sm cart-icon transition-all duration-300 block"
+                  style="
+                    font-size: 1.1em;
+                    font-family: 'bootstrap-icons' !important;
+                  "
+                ></i>
+                <!-- Cart notification badge -->
+                <span
+                  class="cart-badge bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-bold opacity-0 scale-0 transition-all duration-300"
+                >
+                  <span class="cart-count text-xs">0</span>
+                </span>
+              </div>
+              <span class="cart-text transition-all duration-300">Cart</span>
+            </div>
           </div>
-          <div class="cart text-sm cursor-pointer text-gray-900">
-            <span>🛍️ 0</span>
-          </div>
-        </div>
 
-        <!-- Mobile Menu Toggle -->
-        <div
-          class="mobile-menu-toggle md:hidden flex flex-col gap-1 cursor-pointer"
-        >
-          <span
-            class="w-6 h-0.5 bg-gray-900 transition-all duration-300"
-          ></span>
-          <span
-            class="w-6 h-0.5 bg-gray-900 transition-all duration-300"
-          ></span>
-          <span
-            class="w-6 h-0.5 bg-gray-900 transition-all duration-300"
-          ></span>
+          <!-- Mobile Menu Toggle -->
+          <div
+            class="mobile-menu-toggle md:hidden flex flex-col gap-1 cursor-pointer"
+          >
+            <span
+              class="w-6 h-0.5 bg-gray-900 transition-all duration-300"
+            ></span>
+            <span
+              class="w-6 h-0.5 bg-gray-900 transition-all duration-300"
+            ></span>
+            <span
+              class="w-6 h-0.5 bg-gray-900 transition-all duration-300"
+            ></span>
+          </div>
         </div>
       </div>
     </nav>
@@ -150,7 +180,7 @@
       <div class="swiper-wrapper">
         <!-- Hero Section -->
         <div
-          class="swiper-slide flex items-center justify-center relative min-h-screen pt-20 bg-gradient-to-br from-gray-50 to-gray-200"
+          class="swiper-slide flex items-center justify-center relative min-h-screen pt-16 bg-gradient-to-br from-gray-50 to-gray-200"
         >
           <div
             class="hero-content max-w-7xl w-full px-8 flex flex-col md:flex-row items-center justify-between gap-16"
@@ -184,10 +214,9 @@
             </div>
           </div>
         </div>
-
         <!-- About Section -->
         <div
-          class="swiper-slide flex items-center justify-center relative min-h-screen pt-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white"
+          class="swiper-slide flex items-center justify-center relative min-h-screen pt-16 bg-gradient-to-br from-blue-600 to-purple-700 text-white"
         >
           <div class="hero-content text-center max-w-5xl px-8">
             <div class="section-content">
@@ -242,10 +271,9 @@
             </div>
           </div>
         </div>
-
         <!-- Lookbook Section -->
         <div
-          class="swiper-slide flex items-center justify-center relative min-h-screen pt-20 py-8 bg-gradient-to-br from-pink-400 via-purple-200 to-purple-200"
+          class="swiper-slide flex items-center justify-center relative min-h-screen pt-16 py-8 bg-gradient-to-br from-pink-400 via-purple-200 to-purple-200"
         >
           <div class="hero-content max-w-7xl px-8">
             <div class="section-header text-center mb-12">
@@ -320,7 +348,7 @@
         </div>
         <!-- Shop Section -->
         <div
-          class="swiper-slide flex items-center justify-center relative min-h-screen pt-20 bg-gradient-to-br from-cyan-200 to-pink-200"
+          class="swiper-slide flex items-center justify-center relative min-h-screen pt-16 bg-gradient-to-br from-cyan-200 to-pink-200"
         >
           <div class="hero-content text-center max-w-6xl px-8">
             <div class="shop-content">
@@ -401,10 +429,9 @@
             </div>
           </div>
         </div>
-
         <!-- Community Section -->
         <div
-          class="swiper-slide flex items-center justify-center relative min-h-screen pt-20 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white"
+          class="swiper-slide flex items-center justify-center relative min-h-screen pt-16 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white"
         >
           <div class="hero-content text-center max-w-6xl px-8">
             <div class="community-content">
@@ -615,9 +642,12 @@
         ></div>
       </div>
     </div>
-
-    <!-- Scripts -->
+    <!-- Scripts - Modular Approach -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="scripts/app.js"></script>
+    <script src="scripts/theme-manager.js"></script>
+    <script src="scripts/cart-manager.js"></script>
+    <script src="scripts/animation-manager.js"></script>
+    <script src="scripts/navigation-manager.js"></script>
+    <script src="scripts/app-refactored.js"></script>
   </body>
 </html>

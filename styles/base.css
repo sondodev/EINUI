@@ -1,0 +1,46 @@
+/* Font Configurations and Global Styles */
+
+/* Global font family override */
+* {
+  font-family: 'Baloo 2', cursive !important;
+}
+
+/* Preserve Bootstrap Icons font family */
+.bi::before,
+i[class*="bi-"]::before {
+  font-family: 'bootstrap-icons' !important;
+}
+
+/* Ensure icons don't inherit Baloo font */
+.bi, 
+i[class*="bi-"] {
+  font-family: 'bootstrap-icons' !important;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Loading state */
+body {
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+/* Enhanced backdrop blur for better browser support */
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Footer blur enhancement */
+footer {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}

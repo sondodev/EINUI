@@ -1,0 +1,50 @@
+/* Reusable Animation Utilities */
+
+/* Gradient shift animation for hero title */
+@keyframes gradientShift {
+  0%, 100% { 
+    background-position: 0% 50%; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+  }
+}
+
+/* Ripple effect animation */
+@keyframes ripple-animation {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Utility animation classes */
+.animate-gradient-shift {
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce 2s infinite;
+}
+
+/* Loading state animations */
+.loading-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* 3D transform effects */
+.transform-3d {
+  transform-style: preserve-3d;
+  transition: transform var(--transition-normal);
+}
+
+.transform-3d:hover {
+  transform: perspective(1000px) rotateX(10deg) rotateY(5deg) translateZ(10px);
+}

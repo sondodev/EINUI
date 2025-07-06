@@ -20,10 +20,14 @@ A modern, responsive fashion website featuring full-screen scroll snap sections 
 
 ### Optional: Development Server
 
-For live reload during development:
+For live reload during development, you can use any of these methods:
 
 ```bash
-npm run serve
+# Python (if installed)
+python -m http.server 3000
+
+# Or use VS Code Live Server extension
+# Or simply open index.html directly in your browser
 ```
 
 ## 📁 Project Structure
@@ -31,14 +35,28 @@ npm run serve
 ```
 ├── index.html          # Main HTML file with complete website
 ├── scripts/
-│   └── app.js          # JavaScript functionality
+│   ├── theme-manager.js        # Theme management and color adaptation
+│   ├── cart-manager.js         # Shopping cart functionality
+│   ├── animation-manager.js    # Animation utilities
+│   ├── navigation-manager.js   # Navigation and user interactions
+│   ├── app-refactored.js       # Main application (modular)
+│   └── app.js                  # Legacy file (reference)
 ├── styles/
-│   └── main.css        # Custom CSS animations
+│   ├── variables.css           # CSS Custom Properties (Design System)
+│   ├── base.css                # Global styles and fonts
+│   ├── swiper.css              # Swiper component customizations
+│   ├── navigation.css          # Navigation component styles
+│   ├── cart.css                # Cart component with animations
+│   ├── indicators.css          # Slide indicators and UI controls
+│   ├── animations.css          # Reusable animation utilities
+│   ├── responsive.css          # Mobile and responsive styles
+│   └── main.css                # Legacy file (reference)
 ├── assets/
 │   └── README.md       # Asset guidelines
-├── package.json        # Optional - for development server only
+├── memory_bank/        # AI context management
 ├── README.md           # This file
-└── DEVELOPMENT.md      # Development guidelines
+├── DEVELOPMENT.md      # Development guidelines
+└── CLEANUP.md          # Cleanup documentation
 ```
 
 ## 🎨 Sections

@@ -1,0 +1,127 @@
+/* Navigation Component Styles */
+
+/* Navigation styling improvements */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo {
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.nav-actions {
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+/* Enhanced navigation menu styling */
+.nav-link {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all var(--transition-normal);
+}
+
+.nav-link:hover {
+  font-weight: 800;
+}
+
+/* Logo styling */
+.logo-container h1 {
+  font-family: 'Baloo 2', cursive !important;
+  font-weight: 800 !important;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) var(--transition-normal);
+  cursor: pointer;
+  user-select: none;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.1em !important;
+  line-height: 1.1;
+}
+
+.logo-container h1:hover {
+  transform: scale(1.05);
+}
+
+.logo-container h1:active {
+  transform: scale(0.95);
+  transition: all 0.1s ease;
+}
+
+/* Theme-adaptive styling for navbar */
+.navbar-light .nav-link {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-dark .nav-link {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-vibrant .nav-link {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo theme adaptations */
+.navbar-light .logo-container h1 {
+  color: var(--text-light) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.navbar-dark .logo-container h1 {
+  color: var(--text-dark) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.navbar-vibrant .logo-container h1 {
+  color: var(--text-dark) !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+.navbar-light .logo-container h1:hover {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.navbar-dark .logo-container h1:hover {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+.navbar-vibrant .logo-container h1:hover {
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Mobile menu styles */
+.mobile-menu-open {
+  display: flex !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: white !important;
+  flex-direction: column !important;
+  padding: var(--spacing-2xl) !important;
+  box-shadow: var(--shadow-xl) !important;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}

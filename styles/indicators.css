@@ -1,0 +1,81 @@
+/* Slide Indicators and UI Controls */
+
+/* Minimal slide indicators styling */
+.slide-indicators {
+  pointer-events: auto;
+}
+
+.slide-dot {
+  width: 4px !important;
+  height: 4px !important;
+  background-color: rgba(255, 255, 255, 0.3);
+  opacity: 0.4;
+  transform: scale(1);
+  border: none;
+  box-shadow: none;
+  transition: all var(--transition-normal);
+}
+
+.slide-dot:hover {
+  opacity: 0.6;
+  transform: scale(1.2);
+}
+
+.slide-dot.active {
+  opacity: 1;
+  transform: scale(1.5);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Adaptive colors for slide indicators */
+.slide-indicators.light-bg .slide-dot {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.slide-indicators.light-bg .slide-dot.active {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slide-indicators.dark-bg .slide-dot {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.slide-indicators.dark-bg .slide-dot.active {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  transition: opacity var(--transition-normal);
+}
+
+/* Mobile responsiveness for indicators */
+@media (max-width: 768px) {
+  .slide-indicators {
+    right: 4px;
+    gap: 1rem;
+  }
+  
+  .slide-dot {
+    width: 4px !important;
+    height: 4px !important;
+  }
+  
+  .scroll-indicator {
+    bottom: 6px;
+    right: 6px;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-indicators {
+    right: 3px;
+    gap: 0.8rem;
+  }
+  
+  .slide-dot {
+    width: 3px !important;
+    height: 3px !important;
+  }
+}

@@ -35,8 +35,11 @@ open index.html
 ### 2. With Live Reload (Optional)
 
 ```bash
-# Use the optional npm script
-npm run serve
+# Use Python's built-in server
+python -m http.server 3000
+
+# Or use VS Code Live Server extension
+# Or any other static file server
 ```
 
 ### 3. Editing Guidelines
